@@ -24,7 +24,7 @@ struct RecipeRepositoryTests {
             dataResult: .success((Data(), response))
         )
         
-        let service = RecipesRemoteService(session: session)
+        let service = RecipesRemoteService(session: session, apiKey: "key")
         
         do {
             _ = try await service.fetchRecipes()

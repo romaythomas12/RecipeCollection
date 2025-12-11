@@ -10,7 +10,7 @@ import Foundation
 
 // MARK: - Domain Models
 
-public struct Recipe: Identifiable, Equatable, Sendable, Hashable {
+public struct Recipe: Identifiable, Sendable, Hashable {
     public let id: Int
     public let name: String
     public let description: String
@@ -36,7 +36,7 @@ public struct Recipe: Identifiable, Equatable, Sendable, Hashable {
     }
 }
 
-public struct IngredientItem: Identifiable, Equatable, Sendable, Hashable {
+public struct IngredientItem: Identifiable, Sendable, Hashable {
     public let id: Int
     public let name: String
     public let rawText: String
@@ -48,7 +48,7 @@ public struct IngredientItem: Identifiable, Equatable, Sendable, Hashable {
     }
 }
 
-public struct InstructionItem: Identifiable, Equatable, Sendable, Hashable {
+public struct InstructionItem: Identifiable, Sendable, Hashable {
     public let id: Int
     public let text: String
     public let position: Int
@@ -61,8 +61,6 @@ public struct InstructionItem: Identifiable, Equatable, Sendable, Hashable {
 }
 
 // MARK: - Mapping between PersistedRecipe <-> Recipe
-
-// MARK: - PersistedRecipe <-> Recipe Mapping
 
 public extension PersistedRecipe {
     /// Convert persisted model to domain model

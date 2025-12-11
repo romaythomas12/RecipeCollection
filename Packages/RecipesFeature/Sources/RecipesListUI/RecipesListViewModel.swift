@@ -14,9 +14,9 @@ final class RecipesListViewModel: ObservableObject {
     @Published var recipes: [Recipe] = []
     @Published var favourites: [Recipe] = []
     
-    let repository: RecipesRepositoryProtocol
+    let repository: any RecipesRepositoryProtocol
     
-    init(repository: RecipesRepositoryProtocol) {
+    init(repository: any RecipesRepositoryProtocol) {
         self.repository = repository
     }
     

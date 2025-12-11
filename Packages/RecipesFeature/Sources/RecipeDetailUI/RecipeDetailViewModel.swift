@@ -14,9 +14,9 @@ final class RecipeDetailViewModel: ObservableObject {
     @Published var recipe: Recipe
     @Published private(set) var isFavourite: Bool = false
 
-    private let repository: RecipesRepositoryProtocol
+    private let repository: any RecipesRepositoryProtocol
 
-    init(recipe: Recipe, repository: RecipesRepositoryProtocol) {
+    init(recipe: Recipe, repository: any RecipesRepositoryProtocol) {
         self.recipe = recipe
         self.repository = repository
         Task {

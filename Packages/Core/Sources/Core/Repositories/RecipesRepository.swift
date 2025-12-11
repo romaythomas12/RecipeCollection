@@ -9,12 +9,12 @@ import CoreDB
 import Foundation
 
 public actor RecipesRepository: RecipesRepositoryProtocol {
-    private let remote: RecipesRemoteServiceProtocol
-    private let local: RecipesLocalServiceProtocol
+    private let remote: any RecipesRemoteServiceProtocol
+    private let local: any RecipesLocalServiceProtocol
 
     public init(
-        remote: RecipesRemoteServiceProtocol,
-        local: RecipesLocalServiceProtocol
+        remote: any RecipesRemoteServiceProtocol,
+        local: any RecipesLocalServiceProtocol
     ) {
         self.remote = remote
         self.local = local

@@ -8,7 +8,7 @@
 import Foundation
 import RealmSwift
 
-public struct PersistedRecipe: Identifiable, Equatable, Sendable, Hashable {
+public struct PersistedRecipe: Identifiable, Sendable, Hashable {
     public let id: Int
     public let name: String
     public let description: String
@@ -36,7 +36,7 @@ public struct PersistedRecipe: Identifiable, Equatable, Sendable, Hashable {
     }
 }
 
-public struct PersistedIngredientItem: Identifiable, Equatable, Sendable, Hashable {
+public struct PersistedIngredientItem: Identifiable, Sendable, Hashable {
     public let id: Int
     public let name: String
     public let rawText: String
@@ -48,7 +48,7 @@ public struct PersistedIngredientItem: Identifiable, Equatable, Sendable, Hashab
     }
 }
 
-public struct PersistedInstructionItem: Identifiable, Equatable, Sendable, Hashable {
+public struct PersistedInstructionItem: Identifiable, Sendable, Hashable {
     public let id: Int
     public let text: String
     public let position: Int

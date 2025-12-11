@@ -26,32 +26,18 @@ public enum NetworkError: Error {
 // MARK: - Recipes Remote Service
 
 public actor RecipesRemoteService: RecipesRemoteServiceProtocol {
-    private let session: NetworkSessionProtocol
-    private let host: String
+    private let session: any NetworkSessionProtocol
     private let apiKey: String
+    private let requestBuilder: RequestBuilder
 
     public init(
-        session: NetworkSessionProtocol = URLSession.shared,
-        host: String = "tasty.p.rapidapi.com",
-        apiKey: String = "e4587ceb1emsh453429846496e6fp167489jsn95f197d275d3"
+        session: any NetworkSessionProtocol = URLSession.shared,
+        apiKey: String,
+        requestBuilder: RequestBuilder = RequestBuilder()
     ) {
         self.session = session
-        self.host = host
         self.apiKey = apiKey
-    }
-
-    private func makeRequest(from: Int, size: Int, tags: String) throws -> URLRequest {
-        let apiRequest = try APIRequestBuilder(host: host)
-            .setPath("/recipes/list")
-            .addQueryItem(name: "from", value: "\(from)")
-            .addQueryItem(name: "size", value: "\(size)")
-            .addQueryItem(name: "tags", value: tags)
-            .setMethod("GET")
-            .addHeader(name: "x-rapidapi-key", value: apiKey)
-            .addHeader(name: "x-rapidapi-host", value: host)
-            .addHeader(name: "Accept", value: "application/json")
-            .build()
-        return URLRequest(apiRequest: apiRequest)
+        self.requestBuilder = requestBuilder
     }
 
     public func fetchRecipes(
@@ -59,7 +45,14 @@ public actor RecipesRemoteService: RecipesRemoteServiceProtocol {
         size: Int = 20,
         tags: String = "under_30_minutes"
     ) async throws -> [Recipe] {
-        let request = try makeRequest(from: from, size: size, tags: tags)
+        let endpoint = RecipesListEndpoint(
+            from: from,
+            size: size,
+            tags: tags,
+            apiKey: apiKey
+        )
+
+        let request = try requestBuilder.build(from: endpoint).urlRequest
 
         let (data, response): (Data, URLResponse)
         do {
@@ -71,7 +64,6 @@ public actor RecipesRemoteService: RecipesRemoteServiceProtocol {
         guard let http = response as? HTTPURLResponse else {
             throw NetworkError.invalidResponse
         }
-
         guard (200 ..< 300).contains(http.statusCode) else {
             throw NetworkError.statusCode(http.statusCode)
         }
