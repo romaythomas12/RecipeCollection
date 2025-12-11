@@ -6,6 +6,13 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		B17053942EEAC9A50046D13C /* Core in Frameworks */ = {isa = PBXBuildFile; productRef = B17053932EEAC9A50046D13C /* Core */; };
+		B17053962EEAC9A50046D13C /* CoreDB in Frameworks */ = {isa = PBXBuildFile; productRef = B17053952EEAC9A50046D13C /* CoreDB */; };
+		B17053982EEAC9A50046D13C /* CoreUI in Frameworks */ = {isa = PBXBuildFile; productRef = B17053972EEAC9A50046D13C /* CoreUI */; };
+		B170539A2EEAC9A50046D13C /* RecipesFeature in Frameworks */ = {isa = PBXBuildFile; productRef = B17053992EEAC9A50046D13C /* RecipesFeature */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		B170536B2EEAC8E30046D13C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -27,6 +34,10 @@
 		B170535D2EEAC8D90046D13C /* RecipeCollection.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RecipeCollection.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B170536A2EEAC8E30046D13C /* RecipeCollectionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RecipeCollectionTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B17053742EEAC8E30046D13C /* RecipeCollectionUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RecipeCollectionUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B17053A02EEAFCEC0046D13C /* Core */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Core; sourceTree = "<group>"; };
+		B17053A12EEAFCEC0046D13C /* CoreDB */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = CoreDB; sourceTree = "<group>"; };
+		B17053A22EEAFCEC0046D13C /* CoreUI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = CoreUI; sourceTree = "<group>"; };
+		B17053A32EEAFCEC0046D13C /* RecipesFeature */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = RecipesFeature; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -40,11 +51,6 @@
 			path = RecipeCollectionTests;
 			sourceTree = "<group>";
 		};
-		B17053772EEAC8E30046D13C /* RecipeCollectionUITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = RecipeCollectionUITests;
-			sourceTree = "<group>";
-		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +58,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B17053982EEAC9A50046D13C /* CoreUI in Frameworks */,
+				B17053962EEAC9A50046D13C /* CoreDB in Frameworks */,
+				B17053942EEAC9A50046D13C /* Core in Frameworks */,
+				B170539A2EEAC9A50046D13C /* RecipesFeature in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,9 +85,10 @@
 		B17053542EEAC8D90046D13C = {
 			isa = PBXGroup;
 			children = (
+				B170539B2EEAFAD90046D13C /* Packages */,
 				B170535F2EEAC8D90046D13C /* RecipeCollection */,
 				B170536D2EEAC8E30046D13C /* RecipeCollectionTests */,
-				B17053772EEAC8E30046D13C /* RecipeCollectionUITests */,
+				B170538E2EEAC9A50046D13C /* Frameworks */,
 				B170535E2EEAC8D90046D13C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -90,6 +101,24 @@
 				B17053742EEAC8E30046D13C /* RecipeCollectionUITests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		B170538E2EEAC9A50046D13C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B170539B2EEAFAD90046D13C /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				B17053A02EEAFCEC0046D13C /* Core */,
+				B17053A12EEAFCEC0046D13C /* CoreDB */,
+				B17053A22EEAFCEC0046D13C /* CoreUI */,
+				B17053A32EEAFCEC0046D13C /* RecipesFeature */,
+			);
+			path = Packages;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -112,6 +141,10 @@
 			);
 			name = RecipeCollection;
 			packageProductDependencies = (
+				B17053932EEAC9A50046D13C /* Core */,
+				B17053952EEAC9A50046D13C /* CoreDB */,
+				B17053972EEAC9A50046D13C /* CoreUI */,
+				B17053992EEAC9A50046D13C /* RecipesFeature */,
 			);
 			productName = RecipeCollection;
 			productReference = B170535D2EEAC8D90046D13C /* RecipeCollection.app */;
@@ -152,9 +185,6 @@
 			);
 			dependencies = (
 				B17053762EEAC8E30046D13C /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				B17053772EEAC8E30046D13C /* RecipeCollectionUITests */,
 			);
 			name = RecipeCollectionUITests;
 			packageProductDependencies = (
@@ -578,6 +608,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B17053932EEAC9A50046D13C /* Core */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Core;
+		};
+		B17053952EEAC9A50046D13C /* CoreDB */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = CoreDB;
+		};
+		B17053972EEAC9A50046D13C /* CoreUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = CoreUI;
+		};
+		B17053992EEAC9A50046D13C /* RecipesFeature */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = RecipesFeature;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B17053552EEAC8D90046D13C /* Project object */;
 }
