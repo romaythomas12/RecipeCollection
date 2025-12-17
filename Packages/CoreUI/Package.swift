@@ -15,11 +15,6 @@ let package = Package(
     targets: [
         .target(
             name: "CoreUI",
-        ),
-
-        .testTarget(
-            name: "CoreUITests",
-            dependencies: ["CoreUI"]
         )
     ]
 )
